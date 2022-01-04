@@ -19,6 +19,7 @@
 	width: 160px
 	border-radius: 50%
 	display: flex
+	flex-direction: column
 	align-items: center
 	justify-content: center
 	border: none
@@ -43,6 +44,21 @@
 	&:after
 		opacity: 0
 		background: linear-gradient(90deg, #A53CA5 0%, #641491 100%)
+
+	&__text
+		transform: translateY(15px)
+		transition: transform 0.5s linear
+		.is-active &
+			transform: translateY(0)
+
+	&__title
+		font-weight: 700
+		font-size: 24px
+		color: #FFFFFF
+		opacity: 0
+		transition: opacity 0.5s linear
+		.is-active &
+			opacity: 1
 
 	&__circles
 		z-index: -3

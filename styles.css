@@ -21,6 +21,7 @@
   width: 160px;
   border-radius: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: none;
@@ -47,6 +48,23 @@
 .gas-btn:after {
   opacity: 0;
   background: linear-gradient(90deg, #A53CA5 0%, #641491 100%);
+}
+.gas-btn__text {
+  transform: translateY(15px);
+  transition: transform 0.5s linear;
+}
+.is-active .gas-btn__text {
+  transform: translateY(0);
+}
+.gas-btn__title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+.is-active .gas-btn__title {
+  opacity: 1;
 }
 .gas-btn__circles {
   z-index: -3;
