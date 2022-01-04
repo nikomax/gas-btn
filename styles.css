@@ -50,6 +50,7 @@
   background: linear-gradient(90deg, #A53CA5 0%, #641491 100%);
 }
 .gas-btn__text {
+  pointer-events: none;
   transform: translateY(15px);
   transition: transform 0.5s linear;
 }
@@ -57,6 +58,7 @@
   transform: translateY(0);
 }
 .gas-btn__title {
+  pointer-events: none;
   font-weight: 700;
   font-size: 24px;
   color: #FFFFFF;
