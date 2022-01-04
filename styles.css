@@ -125,6 +125,7 @@
   transform-origin: 50% 50%;
   transition: height 0.5s linear, width 0.5s linear;
   will-change: width, height;
+  border-radius: 50%;
 }
 .is-active .gas-btn__glow {
   width: 260px;
