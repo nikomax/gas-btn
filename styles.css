@@ -1,30 +1,37 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.wrapper {
-  padding: 300px 0;
-  min-height: 100vh;
+.i-section {
+  padding: 40px 0;
+  min-height: 200vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   background: #32B9AA;
+  position: relative;
+  align-items: flex-start;
+}
+.i-section__circle {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
 }
 
-.gas-btn {
-  cursor: pointer;
+.i-circle {
   font-family: Poppins, Arial, sans-serif;
   height: 160px;
   width: 160px;
+  margin: 180px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: none;
   color: #FF5F50;
   font-weight: 700;
   font-size: 12px;
@@ -32,7 +39,7 @@
   position: relative;
   z-index: 1;
 }
-.gas-btn:before, .gas-btn:after {
+.i-circle:before, .i-circle:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -45,32 +52,32 @@
   transition: opacity 0.5s linear;
   will-change: opacity;
 }
-.gas-btn:after {
+.i-circle:after {
   opacity: 0;
   background: linear-gradient(90deg, #A53CA5 0%, #641491 100%);
 }
-.gas-btn__text {
-  pointer-events: none;
-  transform: translateY(15px);
-  transition: transform 0.5s linear;
-}
-.is-active .gas-btn__text {
-  transform: translateY(0);
-}
-.gas-btn__title {
-  pointer-events: none;
+.i-circle__title {
   font-weight: 700;
   font-size: 24px;
-  color: #FFFFFF;
-  opacity: 0;
+  color: #87289B;
   transition: opacity 0.5s linear;
+  height: 32px;
+  overflow: hidden;
 }
-.is-active .gas-btn__title {
-  opacity: 1;
+.i-circle__title span {
+  display: block;
 }
-.gas-btn__circles {
+.i-circle__title span:nth-child(1) {
+  transition: margin-top 0.5s linear;
+}
+.is-gas .i-circle__title span:nth-child(1) {
+  margin-top: -32px;
+}
+.i-circle__title span:nth-child(2) {
+  color: #FFF;
+}
+.i-circle__circles {
   z-index: -3;
-  pointer-events: none;
   display: block;
   position: absolute;
   top: 50%;
@@ -79,7 +86,7 @@
   height: 472px;
   width: 472px;
 }
-.gas-btn__circles span {
+.i-circle__circles span {
   position: absolute;
   top: 0;
   left: 0;
@@ -91,27 +98,27 @@
   width: 100%;
   will-change: transform;
 }
-.gas-btn__circles span:nth-child(1) {
+.i-circle__circles span:nth-child(1) {
   left: -24px;
   top: -24px;
   animation: circleOne 8s infinite linear;
 }
-.gas-btn__circles span:nth-child(2) {
+.i-circle__circles span:nth-child(2) {
   left: -24px;
   top: 24px;
   animation: circleTwo 8s infinite linear;
 }
-.gas-btn__circles span:nth-child(3) {
+.i-circle__circles span:nth-child(3) {
   left: 24px;
   top: 24px;
   animation: circleThree 8s infinite linear;
 }
-.gas-btn__circles span:nth-child(4) {
+.i-circle__circles span:nth-child(4) {
   left: 24px;
   top: -24px;
   animation: circleFour 8s infinite linear;
 }
-.gas-btn__glow {
+.i-circle__glow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -127,12 +134,11 @@
   will-change: width, height;
   border-radius: 50%;
 }
-.is-active .gas-btn__glow {
+.is-gas .i-circle__glow {
   width: 260px;
   height: 260px;
 }
-.gas-btn__fire {
-  pointer-events: none;
+.i-circle__fire {
   z-index: -2;
   position: absolute;
   top: 50%;
@@ -144,10 +150,10 @@
   transition: opacity 0.5s linear;
   will-change: opacity;
 }
-.is-active .gas-btn__fire {
+.is-gas .i-circle__fire {
   opacity: 1;
 }
-.gas-btn__fire-inner {
+.i-circle__fire-inner {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -160,12 +166,12 @@
   transition: height 0.5s linear, width 0.5s linear, border-radius 0.5s linear;
   will-change: width, height;
 }
-.is-active .gas-btn__fire-inner {
+.is-gas .i-circle__fire-inner {
   border-radius: 0;
   height: 100%;
   width: 100%;
 }
-.gas-btn__svg {
+.i-circle__gas {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -173,19 +179,65 @@
   height: 432px;
   width: 432px;
 }
-.gas-btn__svg-subfire {
+.i-circle__gas-subfire {
   transform-origin: 50% 50%;
   transform: scale(0);
   transition: transform 0.5s linear;
   will-change: transform;
 }
-.is-active .gas-btn__svg-subfire {
+.is-gas .i-circle__gas-subfire {
   transform: scale(1);
 }
-.gas-btn.is-active:after {
+.i-circle__rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 464px;
+  width: 464px;
+  z-index: -2;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s;
+}
+.i-circle__rays #SecondCircle, .i-circle__rays #FourthCircle {
+  transform-origin: center;
+  transform: rotate(15deg);
+}
+.is-active .i-circle__rays g [clip-path^=url] {
+  will-change: transform, opacity;
+  animation: rays 4s infinite linear;
+}
+.is-active .i-circle__rays #FirstCircle g [clip-path^=url] {
+  animation: rays 4s infinite linear;
+}
+.is-active .i-circle__rays #SecondCircle g [clip-path^=url] {
+  animation-delay: 1s;
+}
+.is-active .i-circle__rays #ThirdCircle g [clip-path^=url] {
+  animation-delay: 2s;
+}
+.is-active .i-circle__rays #FourthCircle g [clip-path^=url] {
+  animation-delay: 3s;
+}
+.is-gas .i-circle__rays {
+  opacity: 0;
+}
+.i-circle.is-gas:after {
   opacity: 1;
 }
 
+@keyframes rays {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}
 @keyframes circleOne {
   0% {
     transform: translate(0, 0);

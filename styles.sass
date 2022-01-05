@@ -1,28 +1,34 @@
 *
 	margin: 0
 	padding: 0
+	box-sizing: border-box
 
-.wrapper
-	padding: 300px 0
-	min-height: 100vh
+.i-section
+	padding: 40px 0
+	min-height: 200vh
 	width: 100%
 	display: flex
-	flex-direction: column
 	justify-content: center
-	align-items: center
 	background: #32B9AA
+	position: relative
+	align-items: flex-start
+	&__circle
+		height: 100vh
+		display: flex
+		align-items: center
+		position: sticky
+		top: 0
 
-.gas-btn
-	cursor: pointer
+.i-circle
 	font-family: Poppins, Arial, sans-serif
 	height: 160px
 	width: 160px
+	margin: 180px
 	border-radius: 50%
 	display: flex
 	flex-direction: column
 	align-items: center
 	justify-content: center
-	border: none
 	color: #FF5F50
 	font-weight: 700
 	font-size: 12px
@@ -45,26 +51,24 @@
 		opacity: 0
 		background: linear-gradient(90deg, #A53CA5 0%, #641491 100%)
 
-	&__text
-		pointer-events: none
-		transform: translateY(15px)
-		transition: transform 0.5s linear
-		.is-active &
-			transform: translateY(0)
-
 	&__title
-		pointer-events: none
 		font-weight: 700
 		font-size: 24px
-		color: #FFFFFF
-		opacity: 0
+		color: #87289B
 		transition: opacity 0.5s linear
-		.is-active &
-			opacity: 1
+		height: 32px
+		overflow: hidden
+		span
+			display: block
+			&:nth-child(1)
+				transition: margin-top 0.5s linear
+				.is-gas &
+					margin-top: -32px
+			&:nth-child(2)
+				color: #FFF
 
 	&__circles
 		z-index: -3
-		pointer-events: none
 		display: block
 		position: absolute
 		top: 50%
@@ -115,12 +119,11 @@
 		transition: height 0.5s linear, width 0.5s linear
 		will-change: width, height
 		border-radius: 50%
-		.is-active &
+		.is-gas &
 			width: 260px
 			height: 260px
 
 	&__fire
-		pointer-events: none
 		z-index: -2
 		position: absolute
 		top: 50%
@@ -131,7 +134,7 @@
 		opacity: 0
 		transition: opacity 0.5s linear
 		will-change: opacity
-		.is-active &
+		.is-gas &
 			opacity: 1
 
 	&__fire-inner
@@ -146,12 +149,12 @@
 		border-radius: 50%
 		transition: height 0.5s linear, width 0.5s linear, border-radius 0.5s linear
 		will-change: width, height
-		.is-active &
+		.is-gas &
 			border-radius: 0
 			height: 100%
 			width: 100%
 
-	&__svg
+	&__gas
 		position: absolute
 		bottom: 0
 		left: 50%
@@ -159,17 +162,54 @@
 		height: 432px
 		width: 432px
 
-	&__svg-subfire
+	&__gas-subfire
 		transform-origin: 50% 50%
 		transform: scale(0)
 		transition: transform 0.5s linear
 		will-change: transform
-		.is-active &
+		.is-gas &
 			transform: scale(1)
 
-	&.is-active
+	&__rays
+		position: absolute
+		top: 50%
+		left: 50%
+		height: 464px
+		width: 464px
+		z-index: -2
+		transform: translate(-50%, -50%)
+		transition: opacity 0.5s
+		#SecondCircle, #FourthCircle
+			transform-origin: center
+			transform: rotate(15deg)
+		.is-active &
+			g [clip-path^="url"]
+				will-change: transform, opacity
+				animation: rays 4s infinite linear
+			#FirstCircle g [clip-path^="url"]
+				animation: rays 4s infinite linear
+			#SecondCircle g [clip-path^="url"]
+				animation-delay: 1s
+			#ThirdCircle g [clip-path^="url"]
+				animation-delay: 2s
+			#FourthCircle g [clip-path^="url"]
+				animation-delay: 3s
+		.is-gas &
+			opacity: 0
+
+	&.is-gas
 		&:after
 			opacity: 1
+
+@keyframes rays
+	0%
+		transform: translateY(0)
+		opacity: 1
+	50%
+		opacity: 1
+	100%
+		transform: translateY(-150px)
+		opacity: 0
 
 @keyframes circleOne
 	0%
@@ -208,3 +248,8 @@
 		transform: translate(0, 0)
 	80%
 		transform: translate(-24px, 24px)
+
+
+//g[clip-path^="url"] {
+//	transform: translateY(-81px);
+//}
