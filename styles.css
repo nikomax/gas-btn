@@ -192,30 +192,75 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 464px;
-  width: 464px;
+  height: 0;
+  width: 0;
   z-index: -2;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s;
+}
+.i-circle__rays .rays-line {
+  position: absolute;
+  bottom: 0;
+  left: -17px;
+  width: 34px;
+  height: 74px;
+  transform-origin: 50% 100%;
+}
+.i-circle__rays .rays-line img {
+  height: 100%;
+  width: 100%;
+}
+.i-circle__rays .rays-line:nth-child(1) {
+  transform: rotate(29deg);
+}
+.i-circle__rays .rays-line:nth-child(2) {
+  transform: rotate(59deg);
+}
+.i-circle__rays .rays-line:nth-child(3) {
+  transform: rotate(89deg);
+}
+.i-circle__rays .rays-line:nth-child(4) {
+  transform: rotate(119deg);
+}
+.i-circle__rays .rays-line:nth-child(5) {
+  transform: rotate(149deg);
+}
+.i-circle__rays .rays-line:nth-child(6) {
+  transform: rotate(179deg);
+}
+.i-circle__rays .rays-line:nth-child(7) {
+  transform: rotate(209deg);
+}
+.i-circle__rays .rays-line:nth-child(8) {
+  transform: rotate(239deg);
+}
+.i-circle__rays .rays-line:nth-child(9) {
+  transform: rotate(269deg);
+}
+.i-circle__rays .rays-line:nth-child(10) {
+  transform: rotate(299deg);
+}
+.i-circle__rays .rays-line:nth-child(11) {
+  transform: rotate(329deg);
+}
+.i-circle__rays .rays-line:nth-child(12) {
+  transform: rotate(359deg);
 }
 .i-circle__rays #SecondCircle, .i-circle__rays #FourthCircle {
   transform-origin: center;
   transform: rotate(15deg);
 }
-.is-active .i-circle__rays g [clip-path^=url] {
+.is-active .i-circle__rays img {
   will-change: transform, opacity;
   animation: rays 4s infinite linear;
 }
-.is-active .i-circle__rays #FirstCircle g [clip-path^=url] {
-  animation: rays 4s infinite linear;
-}
-.is-active .i-circle__rays #SecondCircle g [clip-path^=url] {
+.is-active .i-circle__rays #SecondCircle img {
   animation-delay: 1s;
 }
-.is-active .i-circle__rays #ThirdCircle g [clip-path^=url] {
+.is-active .i-circle__rays #ThirdCircle img {
   animation-delay: 2s;
 }
-.is-active .i-circle__rays #FourthCircle g [clip-path^=url] {
+.is-active .i-circle__rays #FourthCircle img {
   animation-delay: 3s;
 }
 .is-gas .i-circle__rays {

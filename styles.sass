@@ -174,25 +174,36 @@
 		position: absolute
 		top: 50%
 		left: 50%
-		height: 464px
-		width: 464px
+		height: 0
+		width: 0
 		z-index: -2
 		transform: translate(-50%, -50%)
 		transition: opacity 0.5s
+		.rays-line
+			position: absolute
+			bottom: 0
+			left: -17px
+			width: 34px
+			height: 74px
+			transform-origin: 50% 100%
+			img
+				height: 100%
+				width: 100%
+			@for $i from 1 through 12
+				&:nth-child(#{$i})
+					transform: rotate(30deg * $i - 1)
 		#SecondCircle, #FourthCircle
 			transform-origin: center
 			transform: rotate(15deg)
 		.is-active &
-			g [clip-path^="url"]
+			img
 				will-change: transform, opacity
 				animation: rays 4s infinite linear
-			#FirstCircle g [clip-path^="url"]
-				animation: rays 4s infinite linear
-			#SecondCircle g [clip-path^="url"]
+			#SecondCircle img
 				animation-delay: 1s
-			#ThirdCircle g [clip-path^="url"]
+			#ThirdCircle img
 				animation-delay: 2s
-			#FourthCircle g [clip-path^="url"]
+			#FourthCircle img
 				animation-delay: 3s
 		.is-gas &
 			opacity: 0
