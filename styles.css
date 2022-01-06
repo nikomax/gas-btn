@@ -198,7 +198,11 @@
   transform: translate(-50%, -50%);
   transition: opacity 0.5s;
 }
-.i-circle__rays .rays-line {
+.i-circle.is-gas:after {
+  opacity: 1;
+}
+
+.rays__line {
   position: absolute;
   bottom: 0;
   left: -17px;
@@ -206,68 +210,65 @@
   height: 74px;
   transform-origin: 50% 100%;
 }
-.i-circle__rays .rays-line img {
+.rays__line img {
   height: 100%;
   width: 100%;
 }
-.i-circle__rays .rays-line:nth-child(1) {
+.rays__line:nth-child(1) {
   transform: rotate(29deg);
 }
-.i-circle__rays .rays-line:nth-child(2) {
+.rays__line:nth-child(2) {
   transform: rotate(59deg);
 }
-.i-circle__rays .rays-line:nth-child(3) {
+.rays__line:nth-child(3) {
   transform: rotate(89deg);
 }
-.i-circle__rays .rays-line:nth-child(4) {
+.rays__line:nth-child(4) {
   transform: rotate(119deg);
 }
-.i-circle__rays .rays-line:nth-child(5) {
+.rays__line:nth-child(5) {
   transform: rotate(149deg);
 }
-.i-circle__rays .rays-line:nth-child(6) {
+.rays__line:nth-child(6) {
   transform: rotate(179deg);
 }
-.i-circle__rays .rays-line:nth-child(7) {
+.rays__line:nth-child(7) {
   transform: rotate(209deg);
 }
-.i-circle__rays .rays-line:nth-child(8) {
+.rays__line:nth-child(8) {
   transform: rotate(239deg);
 }
-.i-circle__rays .rays-line:nth-child(9) {
+.rays__line:nth-child(9) {
   transform: rotate(269deg);
 }
-.i-circle__rays .rays-line:nth-child(10) {
+.rays__line:nth-child(10) {
   transform: rotate(299deg);
 }
-.i-circle__rays .rays-line:nth-child(11) {
+.rays__line:nth-child(11) {
   transform: rotate(329deg);
 }
-.i-circle__rays .rays-line:nth-child(12) {
+.rays__line:nth-child(12) {
   transform: rotate(359deg);
 }
-.i-circle__rays #SecondCircle, .i-circle__rays #FourthCircle {
+.rays__circle_second, .rays__circle_fourth {
   transform-origin: center;
   transform: rotate(15deg);
 }
-.is-active .i-circle__rays img {
+.is-active .rays .rays__circle img {
   will-change: transform, opacity;
   animation: rays 4s infinite linear;
 }
-.is-active .i-circle__rays #SecondCircle img {
+.is-active .rays .rays__circle_second img {
   animation-delay: 1s;
 }
-.is-active .i-circle__rays #ThirdCircle img {
+.is-active .rays .rays__circle_third img {
   animation-delay: 2s;
 }
-.is-active .i-circle__rays #FourthCircle img {
+.is-active .rays .rays__circle_fourth img {
   animation-delay: 3s;
 }
-.is-gas .i-circle__rays {
+.is-gas .rays {
   opacity: 0;
-}
-.i-circle.is-gas:after {
-  opacity: 1;
 }
 
 @keyframes rays {

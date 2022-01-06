@@ -179,38 +179,43 @@
 		z-index: -2
 		transform: translate(-50%, -50%)
 		transition: opacity 0.5s
-		.rays-line
-			position: absolute
-			bottom: 0
-			left: -17px
-			width: 34px
-			height: 74px
-			transform-origin: 50% 100%
-			img
-				height: 100%
-				width: 100%
-			@for $i from 1 through 12
-				&:nth-child(#{$i})
-					transform: rotate(30deg * $i - 1)
-		#SecondCircle, #FourthCircle
-			transform-origin: center
-			transform: rotate(15deg)
-		.is-active &
-			img
-				will-change: transform, opacity
-				animation: rays 4s infinite linear
-			#SecondCircle img
-				animation-delay: 1s
-			#ThirdCircle img
-				animation-delay: 2s
-			#FourthCircle img
-				animation-delay: 3s
-		.is-gas &
-			opacity: 0
 
 	&.is-gas
 		&:after
 			opacity: 1
+
+.rays
+	$this: &
+	&__line
+		position: absolute
+		bottom: 0
+		left: -17px
+		width: 34px
+		height: 74px
+		transform-origin: 50% 100%
+		img
+			height: 100%
+			width: 100%
+		@for $i from 1 through 12
+			&:nth-child(#{$i})
+				transform: rotate(30deg * $i - 1)
+	&__circle
+		&_second, &_fourth
+			transform-origin: center
+			transform: rotate(15deg)
+	.is-active &
+		#{$this}__circle
+			img
+				will-change: transform, opacity
+				animation: rays 4s infinite linear
+			&_second img
+				animation-delay: 1s
+			&_third img
+				animation-delay: 2s
+			&_fourth img
+				animation-delay: 3s
+	.is-gas &
+		opacity: 0
 
 @keyframes rays
 	0%
