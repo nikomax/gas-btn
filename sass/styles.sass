@@ -2,6 +2,7 @@
 @import "common"
 @import "animations"
 @import "circle"
+@import "btn"
 
 .i-section
 	overflow: hidden
@@ -143,3 +144,19 @@
 				font-size: 18px
 		p + h4
 			margin-top: 32px
+	&__btn
+		display: flex
+		justify-content: center
+		margin-bottom: 48px
+		&_desktop
+			display: none
+			+r(960)
+				z-index: 2
+				display: flex
+				position: absolute
+				bottom: 0
+				left: 0
+				width: 100%
+		&_mobile
+			+r(960)
+				display: none
