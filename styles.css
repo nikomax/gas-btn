@@ -199,20 +199,17 @@ body {
   font-weight: 700;
   font-size: 24px;
   color: #87289B;
-  transition: opacity 0.5s linear;
   height: 32px;
   overflow: hidden;
 }
 .i-circle__title span {
   text-align: center;
   display: block;
-  will-change: margin-top;
+  will-change: transform;
+  transition: transform 0.5s linear;
 }
-.i-circle__title span:nth-child(1) {
-  transition: margin-top 0.5s linear;
-}
-.is-gas .i-circle__title span:nth-child(1) {
-  margin-top: -32px;
+.is-gas .i-circle__title span {
+  transform: translateY(-32px);
 }
 .i-circle__title span:nth-child(2) {
   color: #FFF;
@@ -293,6 +290,7 @@ body {
 }
 .is-gas .i-circle__fire {
   opacity: 1;
+  transition-delay: 0.5s;
 }
 .i-circle__fire-inner {
   position: absolute;
@@ -311,6 +309,7 @@ body {
   border-radius: 0;
   height: 100%;
   width: 100%;
+  transition-delay: 0.5s;
 }
 .i-circle__gas {
   position: absolute;
@@ -328,6 +327,7 @@ body {
   will-change: transform;
 }
 .is-gas .i-circle__gas-subfire {
+  transition-delay: 0.5s;
   transform: scale(1);
 }
 .i-circle__rays {
@@ -339,6 +339,9 @@ body {
   z-index: -2;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s;
+}
+.is-gas .i-circle__rays {
+  opacity: 0;
 }
 .i-circle.is-gas:after {
   opacity: 1;
@@ -512,9 +515,6 @@ body {
 .is-active .rays .rays__circle_fourth img {
   animation-delay: 3s;
 }
-.is-gas .rays {
-  opacity: 0;
-}
 
 .btn {
   text-decoration: none;
@@ -676,7 +676,7 @@ body {
 }
 @media only screen and (min-width: 960px) {
   .i-section__content {
-    margin-top: 50vh;
+    margin: 60vh 0;
     width: 50%;
   }
 }

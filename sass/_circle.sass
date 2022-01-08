@@ -34,17 +34,15 @@
 		font-weight: 700
 		font-size: 24px
 		color: #87289B
-		transition: opacity 0.5s linear
 		height: 32px
 		overflow: hidden
 		span
 			text-align: center
 			display: block
-			will-change: margin-top
-			&:nth-child(1)
-				transition: margin-top 0.5s linear
-				.is-gas &
-					margin-top: -32px
+			will-change: transform
+			transition: transform 0.5s linear
+			.is-gas &
+				transform: translateY(-32px)
 			&:nth-child(2)
 				color: #FFF
 
@@ -117,6 +115,7 @@
 		will-change: opacity
 		.is-gas &
 			opacity: 1
+			transition-delay: 0.5s
 
 	&__fire-inner
 		position: absolute
@@ -134,6 +133,7 @@
 			border-radius: 0
 			height: 100%
 			width: 100%
+			transition-delay: 0.5s
 
 	&__gas
 		position: absolute
@@ -150,6 +150,7 @@
 		transition: transform 0.5s linear
 		will-change: transform
 		.is-gas &
+			transition-delay: 0.5s
 			transform: scale(1)
 
 	&__rays
@@ -161,6 +162,8 @@
 		z-index: -2
 		transform: translate(-50%, -50%)
 		transition: opacity 0.5s
+		.is-gas &
+			opacity: 0
 
 	&.is-gas
 		&:after
@@ -229,5 +232,3 @@
 				animation-delay: 2s
 			&_fourth img
 				animation-delay: 3s
-	.is-gas &
-		opacity: 0
