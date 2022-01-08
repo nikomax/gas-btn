@@ -1,54 +1,8 @@
-*
-	margin: 0
-	padding: 0
-	box-sizing: border-box
-
-.i-section
-	padding: 40px 20px
-	min-height: 100vh
-	width: 100%
-	background: #32B9AA
-	position: relative
-	font-family: Poppins, Arial, sans-serif
-	&__container
-		max-width: 1300px
-		width: 100%
-		margin: 0 auto
-		display: flex
-		justify-content: center
-		align-items: flex-start
-	&__circle
-		height: 100vh
-		display: flex
-		align-items: center
-		position: sticky
-		top: 0
-		width: 50%
-	&__content
-		width: 50%
-		text-align: center
-	&__content-item
-		max-width: 384px
-		margin: 0 auto 20px
-		color: #FFFFFF
-		min-height: 100vh
-		display: flex
-		flex-direction: column
-		justify-content: center
-		font-size: 14px
-		h3
-			margin-bottom: 32px
-			font-size: 24px
-		h4
-			font-size: 16px
-			margin-bottom: 12px
-		p
-			margin-bottom: 32px
-
 .i-circle
 	height: 160px
 	width: 160px
-	margin: 180px
+	min-width: 160px
+	//margin: 180px
 	border-radius: 50%
 	display: flex
 	flex-direction: column
@@ -86,6 +40,7 @@
 		span
 			text-align: center
 			display: block
+			will-change: margin-top
 			&:nth-child(1)
 				transition: margin-top 0.5s linear
 				.is-gas &
@@ -211,6 +166,39 @@
 		&:after
 			opacity: 1
 
+.gas
+	$this: &
+	position: relative
+	height: 100%
+	width: 100%
+	&__fire, &__subfire
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+	&__fire
+		&_sub
+			opacity: 0.25
+			#{$this}__item
+				height: 180px
+				@for $i from 1 through 12
+					&:nth-child(#{$i})
+						transform: rotate(30deg * $i + 15deg)
+	&__item
+		position: absolute
+		bottom: 50%
+		left: calc(50% - 24px)
+		width: 48px
+		height: 146px
+		transform-origin: 50% 100%
+		img
+			height: 88px
+			width: 48px
+		@for $i from 1 through 12
+			&:nth-child(#{$i})
+				transform: rotate(30deg * $i)
+
 .rays
 	$this: &
 	&__line
@@ -225,7 +213,7 @@
 			width: 100%
 		@for $i from 1 through 12
 			&:nth-child(#{$i})
-				transform: rotate(30deg * $i - 1)
+				transform: rotate(30deg * $i)
 	&__circle
 		&_second, &_fourth
 			transform-origin: center
@@ -243,62 +231,3 @@
 				animation-delay: 3s
 	.is-gas &
 		opacity: 0
-
-@keyframes rays
-	0%
-		transform: translateY(0)
-		opacity: 1
-	50%
-		opacity: 1
-	100%
-		transform: translateY(-150px)
-		opacity: 0
-
-@keyframes circleOne
-	0%
-		transform: translate(0, 0)
-	20%
-		transform: translate(24px, 24px)
-	40%
-		transform: translate(0, 0)
-
-@keyframes circleTwo
-	0%
-		transform: translate(0, 0)
-	20%
-		transform: translate(0, 0)
-	40%
-		transform: translate(24px, -24px)
-	60%
-		transform: translate(0, 0)
-	80%
-		transform: translate(24px, -24px)
-
-@keyframes circleThree
-	0%
-		transform: translate(0, 0)
-	40%
-		transform: translate(0, 0)
-	60%
-		transform: translate(-24px, -24px)
-	80%
-		transform: translate(-24px, -24px)
-
-@keyframes circleFour
-	0%
-		transform: translate(0, 0)
-	60%
-		transform: translate(0, 0)
-	80%
-		transform: translate(-24px, 24px)
-
-@keyframes rotate
-	0%
-		transform: translateX(-50%) rotate(0)
-	100%
-		transform: translateX(-50%) rotate(360deg)
-
-
-//g[clip-path^="url"] {
-//	transform: translateY(-81px);
-//}

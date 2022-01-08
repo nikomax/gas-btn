@@ -1,36 +1,25 @@
-const circle = document.querySelector('.js-circle')
-const gasText = document.querySelector('.js-gas-text')
+const page = document.querySelector('.js-page');
+const circle = document.querySelector('.js-circle');
+const section = document.querySelector('.js-i-section');
+const gasContent = document.querySelector('.js-gas-content');
+const themes = ['', 'theme-one', 'theme-two', 'theme-three'];
 
-// window.onload = function () {
-// 	gsap.registerPlugin(ScrollTrigger);
-// 	gsap.timeline({
-// 		scrollTrigger: {
-// 			trigger:".wrapper",
-// 			start: "top top",
-// 			end: "bottom top",
-// 			pin: true,
-// 			markers: true,
-// 			scrub: true,
-// 			onEnter: () => circle.classList.add('is-active'),
-// 			onLeave: () => circle.classList.remove('is-active'),
-// 			onEnterBack: () => circle.classList.add('is-active'),
-// 			onLeaveBack: () => circle.classList.remove('is-active'),
-// 		}
-// 	})
-// }
+function setTheme(index) {
+	page.classList = themes[index]
+}
 
 const observerCircle = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
-				entry.target.classList.add('is-active');
+				section.classList.add('is-active');
 			} else {
-				entry.target.classList.remove('is-active');
+				section.classList.remove('is-active');
 			}
 		})
 	}
 )
 
-observerCircle.observe(circle);
+observerCircle.observe(section);
 
 let directionTop = false
 let lastScroll = 0;
@@ -46,12 +35,14 @@ const observerText = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				circle.classList.add('is-gas');
+				section.classList.add('theme-changed');
 			} else if (directionTop) {
 				circle.classList.remove('is-gas');
+				section.classList.remove('theme-changed');
 			}
 		})
 	},
-	{threshold: 0.75}
+	{threshold: 0.2}
 )
 
-observerText.observe(gasText);
+observerText.observe(gasContent);

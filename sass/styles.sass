@@ -1,0 +1,145 @@
+@import "themes"
+@import "common"
+@import "animations"
+@import "circle"
+
+.i-section
+	overflow: hidden
+	min-height: 100vh
+	background-color: var(--main-bg)
+	position: relative
+	font-family: Poppins, Arial, sans-serif
+	transition: background-color 0.25s ease-in-out
+	&.theme-changed
+		background-color: var(--main-bg-gas)
+	+r(960)
+		overflow: initial
+	&__bg
+		position: absolute
+		top: 360px
+		left: 50%
+		transform: translate(-50%, -50%)
+		.is-active &
+			position: fixed
+			+r(960)
+				position: absolute
+		+r(960)
+			top: 50%
+		div
+			position: absolute
+			mix-blend-mode: normal
+			filter: blur(82px)
+			border-radius: 50%
+			&:nth-child(1)
+				bottom: -198px
+				left: -84px
+				width: 566px
+				height: 566px
+				background: var(--circle-bg-first)
+				opacity: var(--circle-opacity-first)
+				.theme-changed &
+					background: var(--circle-bg-first-gas)
+					opacity: var(--circle-opacity-first-gas)
+			&:nth-child(2)
+				top: -74px
+				left: -122px
+				position: absolute
+				width: 514px
+				height: 532px
+				background: var(--circle-bg-second)
+				opacity: var(--circle-opacity-second)
+				.theme-changed &
+					background: var(--circle-bg-second-gas)
+					opacity: var(--circle-opacity-second-gas)
+			&:nth-child(3)
+				top: -174px
+				right: -160px
+				position: absolute
+				width: 636px
+				height: 636px
+				background: var(--circle-bg-third)
+				opacity: var(--circle-opacity-third)
+				.theme-changed &
+					background: var(--circle-bg-third-gas)
+					opacity: var(--circle-opacity-third-gas)
+	&__container
+		max-width: 1440px
+		padding: 0 32px
+		width: 100%
+		margin: 0 auto
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		+r(960)
+			flex-direction: row
+			align-items: flex-start
+			padding: 0 48px
+		+r(1280)
+			padding: 0 96px
+	&__circle
+		display: flex
+		align-items: center
+		margin-bottom: 162px
+		&_desktop
+			position: relative
+			margin-bottom: 0
+			.i-circle
+				display: none
+			+r(960)
+				.i-circle
+					display: flex
+				justify-content: center
+				height: 100vh
+				position: sticky
+				top: 0
+				width: 50%
+				margin-right: 96px
+		&_mobile
+			+r(960)
+				display: none
+	&__content
+		position: relative
+		z-index: 1
+		text-align: center
+		+r(960)
+			margin-top: 50vh
+			width: 50%
+	&__content-item
+		color: var(--text-color)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		font-size: 14px
+		padding: 48px 0
+		max-width: 384px
+		transition: color 0.3s ease-in-out
+		.theme-changed &
+			color: var(--text-color-gas)
+		+r(960)
+			min-height: 100vh
+			max-width: 448px
+		+r(1280)
+			font-size: 18px
+			font-weight: 300
+		+r(1920)
+			max-width: 528px
+	&__content-title
+		margin-bottom: 166px
+		font-size: 24px
+		+r(736)
+			margin-bottom: 182px
+		+r(960)
+			margin-bottom: 32px
+		+r(1280)
+			line-height: 1.2
+			font-size: 30px
+	&__content-text
+		h4
+			font-size: 16px
+			margin-bottom: 12px
+			+r(1280)
+				font-size: 18px
+		p + h4
+			margin-top: 32px
