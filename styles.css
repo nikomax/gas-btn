@@ -154,6 +154,11 @@ body {
   position: relative;
   z-index: 1;
 }
+@media only screen and (min-width: 1280px) {
+  .i-circle {
+    transform: scale(1.2625);
+  }
+}
 .i-circle:before, .i-circle:after {
   z-index: -1;
   content: "";
