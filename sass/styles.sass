@@ -17,52 +17,76 @@
 		overflow: initial
 	&__bg
 		position: absolute
-		top: 360px
+		top: 300px
 		left: 50%
 		transform: translate(-50%, -50%)
-		filter: blur(82px)
+		width: 958px
+		height: 826px
+		img
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			opacity: 0
+			transition: opacity 0.3s linear
+			will-change: opacity
+			&:nth-child(1)
+				opacity: var(--circles-first)
+			&:nth-child(2)
+				opacity: var(--circles-second)
+			&:nth-child(3)
+				opacity: var(--circles-third)
+			.theme-changed &
+				&:nth-child(1)
+					opacity: var(--circles-first-gas)
+				&:nth-child(2)
+					opacity: var(--circles-second-gas)
+				&:nth-child(3)
+					opacity: var(--circles-third-gas)
+
 		.is-active &
 			position: fixed
 			+r(960)
 				position: absolute
 		+r(960)
 			top: 50%
-		div
-			position: absolute
-			mix-blend-mode: normal
-			border-radius: 50%
-			&:nth-child(1)
-				bottom: -198px
-				left: -84px
-				width: 566px
-				height: 566px
-				background: var(--circle-bg-first)
-				opacity: var(--circle-opacity-first)
-				.theme-changed &
-					background: var(--circle-bg-first-gas)
-					opacity: var(--circle-opacity-first-gas)
-			&:nth-child(2)
-				top: -74px
-				left: -122px
-				position: absolute
-				width: 514px
-				height: 532px
-				background: var(--circle-bg-second)
-				opacity: var(--circle-opacity-second)
-				.theme-changed &
-					background: var(--circle-bg-second-gas)
-					opacity: var(--circle-opacity-second-gas)
-			&:nth-child(3)
-				top: -174px
-				right: -160px
-				position: absolute
-				width: 636px
-				height: 636px
-				background: var(--circle-bg-third)
-				opacity: var(--circle-opacity-third)
-				.theme-changed &
-					background: var(--circle-bg-third-gas)
-					opacity: var(--circle-opacity-third-gas)
+		//div
+		//	position: absolute
+		//	mix-blend-mode: normal
+		//	border-radius: 50%
+		//	&:nth-child(1)
+		//		bottom: -198px
+		//		left: -84px
+		//		width: 566px
+		//		height: 566px
+		//		background: var(--circle-bg-first)
+		//		opacity: var(--circle-opacity-first)
+		//		.theme-changed &
+		//			background: var(--circle-bg-first-gas)
+		//			opacity: var(--circle-opacity-first-gas)
+		//	&:nth-child(2)
+		//		top: -74px
+		//		left: -122px
+		//		position: absolute
+		//		width: 514px
+		//		height: 532px
+		//		background: var(--circle-bg-second)
+		//		opacity: var(--circle-opacity-second)
+		//		.theme-changed &
+		//			background: var(--circle-bg-second-gas)
+		//			opacity: var(--circle-opacity-second-gas)
+		//	&:nth-child(3)
+		//		top: -174px
+		//		right: -160px
+		//		position: absolute
+		//		width: 636px
+		//		height: 636px
+		//		background: var(--circle-bg-third)
+		//		opacity: var(--circle-opacity-third)
+		//		.theme-changed &
+		//			background: var(--circle-bg-third-gas)
+		//			opacity: var(--circle-opacity-third-gas)
 	&__container
 		max-width: 1440px
 		padding: 0 32px
