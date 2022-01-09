@@ -586,6 +586,7 @@ body {
     justify-content: center;
     height: 100vh;
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     width: 50%;
     margin-right: 96px;
