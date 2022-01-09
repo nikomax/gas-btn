@@ -19,28 +19,6 @@
   --circles-second-gas: 1;
 }
 
-.theme-two {
-  --main-bg: #FFBF66;
-  --main-bg-gas: #87289B;
-  --text-color: #282D32;
-  --text-color-gas: #FFF;
-  --circles-first: 0;
-  --circles-first-gas: 0;
-  --circles-second-gas: 1;
-  --circles-third: 1;
-}
-
-.theme-three {
-  --main-bg: #FFBF66;
-  --main-bg-gas: #32B9AA;
-  --text-color: #282D32;
-  --text-color-gas: #FFF;
-  --circles-first: 0;
-  --circles-first-gas: 1;
-  --circles-third: 1;
-  --circles-third-gas: 0;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -120,10 +98,10 @@ body {
 }
 @keyframes rotate {
   0% {
-    transform: translateX(-50%) rotate(0);
+    transform: rotate(0);
   }
   100% {
-    transform: translateX(-50%) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 .i-circle {
@@ -204,26 +182,26 @@ body {
   height: 100%;
   width: 100%;
   will-change: transform;
+  animation: circleOne 8s infinite cubic-bezier(0.83, 0, 0.17, 1);
 }
 .i-circle__circles span:nth-child(1) {
   left: -24px;
   top: -24px;
-  animation: circleOne 8s infinite linear;
 }
 .i-circle__circles span:nth-child(2) {
   left: -24px;
   top: 24px;
-  animation: circleTwo 8s infinite linear;
+  animation-name: circleTwo;
 }
 .i-circle__circles span:nth-child(3) {
   left: 24px;
   top: 24px;
-  animation: circleThree 8s infinite linear;
+  animation-name: circleThree;
 }
 .i-circle__circles span:nth-child(4) {
   left: 24px;
   top: -24px;
-  animation: circleFour 8s infinite linear;
+  animation-name: circleFour;
 }
 .i-circle__glow {
   position: absolute;
@@ -287,7 +265,6 @@ body {
   transform: translateX(-50%);
   height: 432px;
   width: 432px;
-  animation: rotate 60s infinite linear;
 }
 .i-circle__gas-subfire {
   transform-origin: 50% 50%;
@@ -328,7 +305,11 @@ body {
   height: 100%;
   width: 100%;
 }
+.gas__fire {
+  animation: rotate 60s infinite linear;
+}
 .gas__fire_sub {
+  animation: none;
   opacity: 0.25;
 }
 .gas__fire_sub .gas__item {

@@ -2,7 +2,6 @@
 	height: 160px
 	width: 160px
 	min-width: 160px
-	//margin: 180px
 	border-radius: 50%
 	display: flex
 	flex-direction: column
@@ -68,22 +67,22 @@
 			height: 100%
 			width: 100%
 			will-change: transform
+			animation: circleOne 8s infinite cubic-bezier(0.83, 0, 0.17, 1)
 			&:nth-child(1)
 				left: -24px
 				top: -24px
-				animation: circleOne 8s infinite linear
 			&:nth-child(2)
 				left: -24px
 				top: 24px
-				animation: circleTwo 8s infinite linear
+				animation-name: circleTwo
 			&:nth-child(3)
 				left: 24px
 				top: 24px
-				animation: circleThree 8s infinite linear
+				animation-name: circleThree
 			&:nth-child(4)
 				left: 24px
 				top: -24px
-				animation: circleFour 8s infinite linear
+				animation-name: circleFour
 
 	&__glow
 		position: absolute
@@ -144,7 +143,7 @@
 		transform: translateX(-50%)
 		height: 432px
 		width: 432px
-		animation: rotate 60s infinite linear
+		//animation: rotate 60s infinite linear
 
 	&__gas-subfire
 		transform-origin: 50% 50%
@@ -183,7 +182,9 @@
 		height: 100%
 		width: 100%
 	&__fire
+		animation: rotate 60s infinite linear
 		&_sub
+			animation: none
 			opacity: 0.25
 			#{$this}__item
 				height: 180px

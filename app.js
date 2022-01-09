@@ -2,7 +2,7 @@ const page = document.querySelector('.js-page');
 const circle = document.querySelector('.js-circle');
 const section = document.querySelector('.js-i-section');
 const gasContent = document.querySelector('.js-gas-content');
-const themes = ['', 'theme-one', 'theme-two', 'theme-three'];
+const themes = ['', 'theme-one'];
 
 function setTheme(index) {
 	page.classList = themes[index]
