@@ -607,7 +607,7 @@ body {
 }
 @media only screen and (min-width: 960px) {
   .i-section__content {
-    margin: 60vh 0;
+    margin: 30vh 0;
     width: 50%;
   }
 }
@@ -627,6 +627,7 @@ body {
 }
 @media only screen and (min-width: 960px) {
   .i-section__content-item {
+    margin-top: 300px;
     min-height: 100vh;
     max-width: 448px;
   }
