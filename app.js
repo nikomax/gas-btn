@@ -1,6 +1,7 @@
 const page = document.querySelector('.js-page');
 const circle = document.querySelector('.js-circle');
 const section = document.querySelector('.js-i-section');
+const lightContent = document.querySelector('.js-light-content');
 const gasContent = document.querySelector('.js-gas-content');
 const themes = ['', 'theme-one'];
 
@@ -17,15 +18,10 @@ window.onload = () => {
 					section.classList.remove('is-active');
 				}
 			})
-		},
-		{
-			root: null,
-			rootMargin: "0px",
-			threshold: 0.000001
 		}
 	)
 
-	observerCircle.observe(section);
+	observerCircle.observe(lightContent);
 
 	let directionTop = false
 	let lastScroll = 0;
@@ -42,15 +38,15 @@ window.onload = () => {
 				if (entry.isIntersecting) {
 					circle.classList.add('is-gas');
 					section.classList.add('theme-changed');
+					console.log('add');
 				} else if (directionTop) {
 					circle.classList.remove('is-gas');
 					section.classList.remove('theme-changed');
+					console.log('remove');
 				}
 			})
 		},
 		{
-			root: null,
-			rootMargin: "0px",
 			threshold: 0.1
 		}
 	)
