@@ -1,7 +1,6 @@
 const page = document.querySelector('.js-page');
 const circle = document.querySelector('.js-circle');
 const section = document.querySelector('.js-i-section');
-const lightContent = document.querySelector('.js-light-content');
 const gasContent = document.querySelector('.js-gas-content');
 const themes = ['', 'theme-one'];
 
@@ -21,7 +20,7 @@ window.onload = () => {
 		}
 	)
 
-	observerCircle.observe(lightContent);
+	observerCircle.observe(section);
 
 	let directionTop = false
 	let lastScroll = 0;
@@ -38,11 +37,9 @@ window.onload = () => {
 				if (entry.isIntersecting) {
 					circle.classList.add('is-gas');
 					section.classList.add('theme-changed');
-					console.log('add');
 				} else if (directionTop) {
 					circle.classList.remove('is-gas');
 					section.classList.remove('theme-changed');
-					console.log('remove');
 				}
 			})
 		},
