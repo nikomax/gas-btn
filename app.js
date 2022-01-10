@@ -42,8 +42,7 @@ window.onload = () => {
 					section.classList.remove('theme-changed');
 				}
 			})
-		},
-		{threshold: 0.1}
+		}
 	)
 
 	observerText.observe(gasContent);
