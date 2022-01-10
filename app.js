@@ -17,6 +17,11 @@ window.onload = () => {
 					section.classList.remove('is-active');
 				}
 			})
+		},
+		{
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.000001
 		}
 	)
 
@@ -42,6 +47,11 @@ window.onload = () => {
 					section.classList.remove('theme-changed');
 				}
 			})
+		},
+		{
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.1
 		}
 	)
 
