@@ -10,7 +10,8 @@
 	background-color: var(--main-bg)
 	position: relative
 	font-family: Poppins, Arial, sans-serif
-	transition: background-color 0.25s ease-in-out
+	will-change: background-color
+	transition: background-color 0.5s ease-in-out
 	&.theme-changed
 		background-color: var(--main-bg-gas)
 	+r(960)
@@ -29,7 +30,7 @@
 			height: 100%
 			width: 100%
 			opacity: 0
-			transition: opacity 0.3s linear
+			transition: opacity 0.5s linear
 			will-change: opacity
 			&:nth-child(1)
 				opacity: var(--circles-first)
@@ -42,9 +43,6 @@
 					opacity: var(--circles-first-gas)
 				&:nth-child(2)
 					opacity: var(--circles-second-gas)
-				&:nth-child(3)
-					opacity: var(--circles-third-gas)
-
 		.is-active &
 			position: fixed
 			+r(960)
@@ -96,7 +94,7 @@
 			margin: 30vh 0
 			width: 50%
 	&__content-item
-		color: var(--text-color)
+		color: #FFF
 		display: flex
 		flex-direction: column
 		justify-content: center
@@ -104,9 +102,6 @@
 		font-size: 14px
 		padding: 48px 0
 		max-width: 384px
-		transition: color 0.3s ease-in-out
-		.theme-changed &
-			color: var(--text-color-gas)
 		+r(960)
 			margin-top: 300px
 			min-height: 100vh

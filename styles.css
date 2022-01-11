@@ -1,17 +1,5 @@
 :root {
   --main-bg: #32B9AA;
-  --main-bg-gas: #32B9AA;
-  --text-color: #FFF;
-  --text-color-gas: #FFF;
-  --circles-first: 1;
-  --circles-first-gas: 1;
-  --circles-second: 0;
-  --circles-second-gas: 0;
-  --circles-third: 0;
-  --circles-third-gas: 0;
-}
-
-.theme-one {
   --main-bg-gas: #87289B;
   --circles-first: 1;
   --circles-first-gas: 0;
@@ -488,7 +476,8 @@ body {
   background-color: var(--main-bg);
   position: relative;
   font-family: Poppins, Arial, sans-serif;
-  transition: background-color 0.25s ease-in-out;
+  will-change: background-color;
+  transition: background-color 0.5s ease-in-out;
 }
 .i-section.theme-changed {
   background-color: var(--main-bg-gas);
@@ -513,7 +502,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.5s linear;
   will-change: opacity;
 }
 .i-section__bg img:nth-child(1) {
@@ -530,9 +519,6 @@ body {
 }
 .theme-changed .i-section__bg img:nth-child(2) {
   opacity: var(--circles-second-gas);
-}
-.theme-changed .i-section__bg img:nth-child(3) {
-  opacity: var(--circles-third-gas);
 }
 .is-active .i-section__bg {
   position: fixed;
@@ -612,7 +598,7 @@ body {
   }
 }
 .i-section__content-item {
-  color: var(--text-color);
+  color: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -620,10 +606,6 @@ body {
   font-size: 14px;
   padding: 48px 0;
   max-width: 384px;
-  transition: color 0.3s ease-in-out;
-}
-.theme-changed .i-section__content-item {
-  color: var(--text-color-gas);
 }
 @media only screen and (min-width: 960px) {
   .i-section__content-item {
