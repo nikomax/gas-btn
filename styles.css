@@ -477,7 +477,7 @@ body {
   position: relative;
   font-family: Poppins, Arial, sans-serif;
   will-change: background-color;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 1s ease-in-out;
 }
 .i-section.theme-changed {
   background-color: var(--main-bg-gas);
@@ -502,7 +502,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.5s linear;
+  transition: opacity 1s linear;
   will-change: opacity;
 }
 .i-section__bg img:nth-child(1) {
